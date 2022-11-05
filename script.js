@@ -2,7 +2,7 @@ const input = document.querySelector(".search-area__input")
 const searchButton = document.querySelector(".search-area__button")
 const outputSection = document.querySelector(".output")
 
-searchButton.addEventListener("click", async function () {
+async function displayData() {
 	const url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 	const wordTitle = document.querySelector(".word__title")
@@ -30,4 +30,12 @@ searchButton.addEventListener("click", async function () {
 	}
 
 	outputSection.classList.remove("output--hidden")
+}
+
+searchButton.addEventListener("click", displayData)
+input.addEventListener("keydown", e => {
+	if (e.key === "Enter") {
+		e.preventDefault()
+		displayData()
+	}
 })
