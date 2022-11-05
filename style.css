@@ -1,0 +1,224 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* General styling */
+
+:root {
+	--color-primary-bluish-gray: hsl(251, 100%, 81%); /* #ae9cff */
+
+	--color-neutral-deep-blue: hsl(247, 50%, 20%); /* #1f194c */
+	--color-neutral-light-bluish-gray: hsl(235, 28%, 77%); /* #b3b6d4 */
+	--color-neutral-dark-bluish-gray: hsl(235, 17%, 41%); /* #575a7b */
+	--color-active-violet: hsl(267, 76%, 67%);
+
+	--font-size-200: 0.75rem;
+	--font-size-300: 0.875rem;
+	--font-size-400: 1rem;
+	--font-size-500: 1.125rem;
+	--font-size-600: 1.25rem;
+	--font-size-900: 1.875rem;
+}
+
+body {
+	height: 100vh;
+	background-color: var(--color-primary-bluish-gray);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	font-family: "Poppins", sans-serif;
+	font-size: clamp(var(--font-size-200), 4vw, var(--font-size-400));
+}
+
+.card {
+	max-width: 32rem;
+
+	margin: min(4vw, 1rem);
+	padding-block: min(20vw, 5rem);
+	padding-inline: min(12.5vw, 3.125rem);
+
+	display: flex;
+	flex-direction: column;
+	gap: clamp(2.5rem, 10vw, 5rem);
+
+	border-radius: 0.625rem;
+
+	background-color: white;
+	box-shadow: 0 20px 40px rgba(38, 33, 61, 0.2);
+}
+
+/* Input area */
+
+.search-area {
+	display: grid;
+	grid-template-columns: 1fr minmax(25%, 5rem);
+	gap: 5%;
+}
+
+.search-area__input,
+.search-area__button {
+	border: none;
+	outline: none;
+}
+
+.search-area__input {
+	width: 100%;
+	padding: 5px;
+
+	border-bottom: 3px solid var(--color-primary-bluish-gray);
+}
+
+.search-area__button {
+	padding: 15px 0;
+
+	background-color: var(--color-primary-bluish-gray);
+	color: white;
+
+	cursor: pointer;
+
+	border-radius: 5px;
+}
+
+/* Output area */
+
+.output {
+	display: flex;
+	flex-direction: column;
+}
+
+.word {
+	display: flex;
+	justify-content: space-between;
+}
+
+.word__title {
+	font-size: clamp(var(--font-size-600), 7.5vw, var(--font-size-900));
+	font-weight: 700;
+}
+
+.word__sound {
+	background-color: transparent;
+
+	cursor: pointer;
+
+	color: var(--color-primary-bluish-gray);
+	border: none;
+	outline: none;
+	font-size: var(--font-size-500);
+}
+
+.details {
+	display: flex;
+	gap: 0.625rem;
+
+	margin-block: 5px 20px;
+}
+
+.details__part-of-speech,
+.details__transcription {
+	color: var(--color-neutral-light-bluish-gray);
+}
+
+.output__meaning,
+.output__example {
+	color: var(--color-neutral-dark-bluish-gray);
+}
+
+.output__example {
+	padding-inline-start: 1.25rem;
+	margin-block-start: 30px;
+
+	border-left: 5px solid var(--color-primary-bluish-gray);
+
+	font-style: italic;
+}
+
+.output--hidden {
+	display: none;
+}
+
+/* Active states */
+
+@media (hover: hover) {
+	.search-area__button:hover {
+		background-color: var(--color-active-violet);
+	}
+
+	.search-area__input:hover {
+		border-color: var(--color-active-violet);
+	}
+
+	.word__sound:hover {
+		color: var(--color-active-violet);
+	}
+}
+
+.search-area__input:focus {
+	border-color: var(--color-active-violet);
+}
+
+/* Media query */
+
+@media screen and (min-width: 40rem) {
+	body {
+		justify-content: center;
+	}
+}
