@@ -126,6 +126,10 @@ body {
 	border-bottom: 3px solid var(--color-primary-bluish-gray);
 }
 
+.search-area__input::placeholder {
+	color: var(--color-neutral-light-bluish-gray);
+}
+
 .search-area__button {
 	padding: 15px 0;
 
@@ -150,6 +154,8 @@ body {
 }
 
 .word__title {
+	color: var(--color-neutral-deep-blue);
+
 	font-size: clamp(var(--font-size-600), 7.5vw, var(--font-size-900));
 	font-weight: 700;
 }
