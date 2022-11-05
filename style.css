@@ -164,6 +164,7 @@ body {
 }
 
 .word__sound {
+	/* WIll be used later */
 	background-color: transparent;
 
 	cursor: pointer;
