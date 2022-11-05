@@ -17,6 +17,7 @@ async function displayData() {
 		document.querySelector(".details__part-of-speech").textContent = data[0].meanings[0].partOfSpeech
 		document.querySelector(".details__transcription").textContent = data[0].phonetic
 		document.querySelector(".output__meaning").textContent = data[0].meanings[0].definitions[0].definition
+		console.log(data[0].meanings[0].definitions)
 		document.querySelector(".output__example").textContent = data[0].meanings[0].definitions[0].example || ""
 	} catch (error) {
 		wordTitle.textContent = "Could not find the word"
